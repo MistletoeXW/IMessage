@@ -1,4 +1,4 @@
-package net.qiujuer.italker.push.frags.account;
+package net.qiujuer.italker.push.frags.user;
 
 
 import android.content.Intent;

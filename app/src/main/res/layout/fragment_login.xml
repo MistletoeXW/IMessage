@@ -2,13 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.qiujuer.italker.push.frags.main.ActiveFragment">
+    tools:context="net.qiujuer.italker.push.frags.account.LoginFragment">
 
-    <net.qiujuer.italker.common.widget.GalleryView
-        android:id="@+id/galleryView"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="1dp"></net.qiujuer.italker.common.widget.GalleryView>
-
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

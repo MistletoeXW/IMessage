@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.qiujuer.italker.push.frags.account.UpdateInfoFragment">
+    tools:context="net.qiujuer.italker.push.frags.user.UpdateInfoFragment">
 
     <net.qiujuer.italker.common.widget.PortraitView
         android:id="@+id/im_portrait"

@@ -10,6 +10,9 @@ import butterknife.BindView;
 
 public class ActiveFragment extends Fragment {
 
+    @BindView(R.id.galleryView)
+    GalleryView mGallery;
+
     public ActiveFragment() {
         // Required empty public constructor
     }
@@ -23,5 +26,12 @@ public class ActiveFragment extends Fragment {
     @Override
     protected void initData() {
         super.initData();
+
+        mGallery.setup(getLoaderManager(), new GalleryView.SelectedChangeListener() {
+            @Override
+            public void onSelectedCountChanged(int count) {
+
+            }
+        });
     }
 }
