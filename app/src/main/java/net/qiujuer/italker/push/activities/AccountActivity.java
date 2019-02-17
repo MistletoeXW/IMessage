@@ -66,9 +66,9 @@ public class AccountActivity extends Activity implements AccountTrigger {
                         Drawable drawable = resource.getCurrent();
                         // 使用适配类进行包装
                         drawable = DrawableCompat.wrap(drawable);
-                        drawable.setColorFilter(UiCompat.getColor(getResources(), R.color.colorAccent),
-                                PorterDuff.Mode.SCREEN); // 设置着色的效果和颜色，蒙板模式
-                        // 设置给ImageView
+//                        drawable.setColorFilter(UiCompat.getColor(getResources(), R.color.colorAccent),
+//                                PorterDuff.Mode.SCREEN); // 设置着色的效果和颜色，蒙板模式
+                         //设置给ImageView
                         this.view.setImageDrawable(drawable);
                     }
                 });
