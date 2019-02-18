@@ -18,6 +18,7 @@ public class RegisterModel {
         this.phone = account;
         this.password = password;
         this.name = name;
+        this.pushId = pushId;
     }
 
     public String getAccount() {

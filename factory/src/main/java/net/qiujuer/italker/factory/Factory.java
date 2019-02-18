@@ -101,7 +101,7 @@ public class Factory {
         // 进行Code区分
         switch (model.getCode()) {
             case RspModel.SUCCEED:
-                decodeRspCode(R.string.data_rsp_account_success,callback);
+                //decodeRspCode(R.string.data_rsp_account_success,callback);
                 return;
             case RspModel.ERROR_SERVICE:
                 decodeRspCode(R.string.data_rsp_error_service, callback);

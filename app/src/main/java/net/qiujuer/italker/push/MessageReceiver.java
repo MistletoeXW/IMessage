@@ -14,9 +14,6 @@ import net.qiujuer.italker.factory.persistence.Account;
 
 /**
  * 个推的消息接收器
- *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public class MessageReceiver extends BroadcastReceiver {
     private static final String TAG = MessageReceiver.class.getSimpleName();
@@ -61,11 +58,11 @@ public class MessageReceiver extends BroadcastReceiver {
     private void onClientInit(String cid) {
         // 设置设备Id
         Account.setPushId(cid);
-//        if (Account.isLogin()) {
-//            // 账户登录状态，进行一次PushId绑定
-//            // 没有登录是不能绑定PushId的
-//            //AccountHelper.bindPush(null);
-//        }
+        if (Account.isLogin()) {
+            // 账户登录状态，进行一次PushId绑定
+            // 没有登录是不能绑定PushId的
+            AccountHelper.bindPush(null);
+        }
     }
 
     /**

@@ -64,22 +64,22 @@ public class AccountHelper {
         });
     }
 
-//    /**
-//     * 对设备Id进行绑定的操作
-//     *
-//     * @param callback Callback
-//     */
-//    public static void bindPush(final DataSource.Callback<User> callback) {
-//        // 检查是否为空
-//        String pushId = Account.getPushId();
-//        if (TextUtils.isEmpty(pushId))
-//            return;
-//
-//        // 调用Retrofit对我们的网络请求接口做代理
-//        RemoteService service = Network.remote();
-//        Call<RspModel<AccountRspModel>> call = service.accountBind(pushId);
-//        call.enqueue(new AccountRspCallback(callback));
-//    }
+    /**
+     * 对设备Id进行绑定的操作
+     *
+     * @param callback Callback
+     */
+    public static void bindPush(final DataSource.Callback<User> callback) {
+        // 检查是否为空
+        String pushId = Account.getPushId();
+        if (TextUtils.isEmpty(pushId))
+            return;
+
+        // 调用Retrofit对我们的网络请求接口做代理
+        RemoteService service = Network.remote();
+        Call<RspModel<AccountRspModel>> call = service.accountBind(pushId);
+        call.enqueue(new AccountRspCallback(callback));
+    }
 
     /**
      * 登录的调用
@@ -139,17 +139,17 @@ public class AccountHelper {
                 // 同步到XML持久化中
                 Account.login(accountRspModel);
 
-                // 判断绑定状态，是否绑定设备
-//                if (accountRspModel.isBind()) {
-//                    // 设置绑定状态为True
-//                    Account.setBind(true);
+                //判断绑定状态，是否绑定设备
+                if (accountRspModel.isBind()) {
+                    // 设置绑定状态为True
+                    Account.setBind(true);
                     // 然后返回
                     if (callback != null)
                         callback.onDataLoaded(user);
-//                } else {
-//                    // 进行绑定的唤起
-//                    bindPush(callback);
-//                }
+                } else {
+                    // 进行绑定的唤起
+                    bindPush(callback);
+                }
             } else {
                 // 错误解析
                 Factory.decodeRspCode(rspModel, callback);

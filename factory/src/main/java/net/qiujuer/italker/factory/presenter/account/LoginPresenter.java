@@ -9,6 +9,7 @@ import net.qiujuer.italker.factory.data.DataSource;
 import net.qiujuer.italker.factory.data.helper.AccountHelper;
 import net.qiujuer.italker.factory.model.api.account.LoginModel;
 import net.qiujuer.italker.factory.model.db.User;
+import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.factory.presenter.BasePresenter;
 
 /**
@@ -33,7 +34,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View>
             view.showError(R.string.data_account_login_invalid_parameter);
         } else {
 
-            LoginModel model = new LoginModel(phone, password);
+            LoginModel model = new LoginModel(phone, password,Account.getPushId());
             AccountHelper.login(model, this);
         }
     }

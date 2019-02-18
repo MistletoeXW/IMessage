@@ -53,9 +53,8 @@ public class LaunchActivity extends Activity {
         startAnim(0.5f, new Runnable() {
             @Override
             public void run() {
-//                // 检查等待状态
- //               waitPushReceiverId();
-                reallySkip();
+                // 检查等待状态
+                waitPushReceiverId();
             }
         });
     }
@@ -67,12 +66,10 @@ public class LaunchActivity extends Activity {
         if (Account.isLogin()) {
             // 已经登录情况下，判断是否绑定
             // 如果没有绑定则等待广播接收器进行绑定
-//            if (Account.isBind()) {
-//                skip();
-//                return;
-//            }
-            skip();
-            return;
+            if (Account.isBind()) {
+                skip();
+                return;
+            }
         } else {
             // 没有登录
             // 如果拿到了PushId, 没有登录是不能绑定PushId的

@@ -21,6 +21,8 @@ allprojects {
         mavenCentral()
         jcenter()
         maven { url "https://www.jitpack.io" }
+        //个推私有Maven URL地址
+        maven { url "http://mvn.gt.igexin.com/nexus/content/repositories/releases/" }
     }
 }
 

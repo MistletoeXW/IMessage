@@ -39,7 +39,7 @@
         <activity
             android:name=".LaunchActivity"
             android:label="@string/title_activity_launch"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.TransStatusBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,7 +60,9 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.UserActivity"
-            android:label="@string/title_activity_user" />
+            android:label="@string/title_activity_user"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Account" />
     </application>
 
 </manifest>

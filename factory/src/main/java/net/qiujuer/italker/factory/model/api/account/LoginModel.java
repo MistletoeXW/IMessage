@@ -7,7 +7,7 @@ package net.qiujuer.italker.factory.model.api.account;
 public class LoginModel {
     private String phone;
     private String password;
-    //private String pushId;
+    private String pushId;
 
     public LoginModel(String account, String password) {
         this.phone = account;
@@ -17,7 +17,7 @@ public class LoginModel {
     public LoginModel(String account, String password, String pushId) {
         this.phone = account;
         this.password = password;
-        //this.pushId = pushId;
+        this.pushId = pushId;
     }
 
     public String getAccount() {
@@ -36,20 +36,20 @@ public class LoginModel {
         this.password = password;
     }
 
-//    public String getPushId() {
-//        return pushId;
-//    }
-//
-//    public void setPushId(String pushId) {
-//        this.pushId = pushId;
-//    }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 
     @Override
     public String toString() {
         return "LoginModel{" +
                 "phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
-                //", pushId='" + pushId + '\'' +
+                ", pushId='" + pushId + '\'' +
                 '}';
     }
 }
