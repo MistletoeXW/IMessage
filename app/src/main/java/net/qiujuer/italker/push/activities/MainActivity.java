@@ -64,6 +64,7 @@ public class MainActivity extends Activity
         context.startActivity(new Intent(context, MainActivity.class));
     }
 
+
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_main;

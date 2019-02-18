@@ -46,9 +46,9 @@ public class User extends BaseModel {
     @Column
     private boolean isFollow;
 
-    // 时间字段
-    @Column
-    private Date modifyAt;
+//    // 时间字段
+//    @Column
+//    private Date modifyAt;
 
     public String getId() {
         return id;
@@ -130,13 +130,13 @@ public class User extends BaseModel {
         isFollow = follow;
     }
 
-    public Date getModifyAt() {
-        return modifyAt;
-    }
-
-    public void setModifyAt(Date modifyAt) {
-        this.modifyAt = modifyAt;
-    }
+//    public Date getModifyAt() {
+//        return modifyAt;
+//    }
+//
+//    public void setModifyAt(Date modifyAt) {
+//        this.modifyAt = modifyAt;
+//    }
 
 
     @Override
@@ -152,7 +152,7 @@ public class User extends BaseModel {
                 ", follows=" + follows +
                 ", following=" + following +
                 ", isFollow=" + isFollow +
-                ", modifyAt=" + modifyAt +
+//                ", modifyAt=" + modifyAt +
                 '}';
     }
 }

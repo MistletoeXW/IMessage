@@ -24,6 +24,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--个推的广播注册-->
+        <receiver
+            android:name=".MessageReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="1000">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".LaunchActivity"
             android:label="@string/title_activity_launch"
@@ -48,7 +60,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.UserActivity"
-            android:label="@string/title_activity_user"></activity>
+            android:label="@string/title_activity_user" />
     </application>
 
 </manifest>
