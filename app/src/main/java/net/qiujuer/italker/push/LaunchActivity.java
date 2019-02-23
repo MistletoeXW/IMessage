@@ -54,7 +54,8 @@ public class LaunchActivity extends Activity {
             @Override
             public void run() {
                 // 检查等待状态
-                waitPushReceiverId();
+                //waitPushReceiverId();
+                reallySkip();
             }
         });
     }

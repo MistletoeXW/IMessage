@@ -4,9 +4,13 @@ import net.qiujuer.italker.factory.model.api.RspModel;
 import net.qiujuer.italker.factory.model.api.account.AccountRspModel;
 import net.qiujuer.italker.factory.model.api.account.LoginModel;
 import net.qiujuer.italker.factory.model.api.account.RegisterModel;
+import net.qiujuer.italker.factory.model.card.UserCard;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -41,6 +45,10 @@ public interface RemoteService {
      */
     @POST("user/bind/{pushId}")
     Call<RspModel<AccountRspModel>> accountBind(@Path(encoded = true, value = "pushId") String pushId);
+
+    //用户搜索接口
+    @GET(value = "user/search/name/{name}")
+    Call<RspModel<List<UserCard>>> userSearch(@Path(value = "name") String name);
 
 
 }
