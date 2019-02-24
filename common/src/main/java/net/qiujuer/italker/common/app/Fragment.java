@@ -21,6 +21,8 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     protected View mRoot;
     protected Unbinder mRootUnBinder;
     protected PlaceHolderView mPlaceHolderView;
+    // 标示是否第一次初始化数据
+    protected boolean mIsFirstInitData = true;
 
     @Override
     public void onAttach(Context context) {
@@ -53,6 +55,13 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if (mIsFirstInitData) {
+            // 触发一次以后就不会触发
+            mIsFirstInitData = false;
+            // 触发
+            onFirstInit();
+        }
+
         // 当View创建完成后初始化数据
         initData();
     }
@@ -87,6 +96,13 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     }
 
     /**
+     * 当首次初始化数据的时候会调用的方法
+     */
+    protected void onFirstInit() {
+
+    }
+
+    /**
      * 返回按键触发时调用
      *
      * @return 返回True代表我已处理返回逻辑，Activity不用自己finish。
@@ -95,6 +111,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     public boolean onBackPressed() {
         return false;
     }
+
 
     /**
      * 设置占位布局

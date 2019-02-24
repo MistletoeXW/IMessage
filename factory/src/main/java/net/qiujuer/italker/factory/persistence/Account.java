@@ -31,7 +31,7 @@ public class Account {
     // 登录的用户ID
     private static String userId;
     // 登录的账户
-    private static String phone;
+    private static String account;
 
 
     /**
@@ -47,7 +47,7 @@ public class Account {
                 .putBoolean(KEY_IS_BIND, isBind)
                 .putString(KEY_TOKEN, token)
                 .putString(KEY_USER_ID, userId)
-                .putString(KEY_ACCOUNT, phone)
+                .putString(KEY_ACCOUNT, account)
                 .apply();
     }
 
@@ -61,7 +61,7 @@ public class Account {
         isBind = sp.getBoolean(KEY_IS_BIND, false);
         token = sp.getString(KEY_TOKEN, "");
         userId = sp.getString(KEY_USER_ID, "");
-        phone = sp.getString(KEY_ACCOUNT, "");
+        account = sp.getString(KEY_ACCOUNT, "");
     }
 
 
@@ -136,8 +136,8 @@ public class Account {
      */
     public static void login(AccountRspModel model) {
         // 存储当前登录的账户, token, 用户Id，方便从数据库中查询我的信息
-        Account.token = "Bearer " +  model.getToken();
-        Account.phone = model.getAccount();
+        Account.token = "Bearer " + model.getToken();
+        Account.account = model.getAccount();
         Account.userId = model.getUser().getId();
         save(Factory.app());
     }
@@ -149,10 +149,20 @@ public class Account {
      */
     public static User getUser() {
         // 如果为null返回一个new的User，其次从数据库查询
-        return TextUtils.isEmpty(userId) ? new User() : SQLite.select()
+        User user = TextUtils.isEmpty(userId) ? new User() : SQLite.select()
                 .from(User.class)
                 .where(User_Table.id.eq(userId))
                 .querySingle();
+        return user;
+    }
+
+    /**
+     * 返回用户Id
+     *
+     * @return 用户Id
+     */
+    public static String getUserId() {
+        return getUser().getId();
     }
 
     /**

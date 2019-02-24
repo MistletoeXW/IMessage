@@ -50,5 +50,12 @@ public interface RemoteService {
     @GET(value = "user/search/name/{name}")
     Call<RspModel<List<UserCard>>> userSearch(@Path(value = "name") String name);
 
+    //用户添加关注接口
+    @POST("user/Follows/{userId}")
+    Call<RspModel<UserCard>> userFollow(@Path(value = "userId") String followInfo);
+
+    //获取联系人列表
+    @GET("user/Followings")
+    Call<RspModel<List<UserCard>>> userFollowings();
 
 }

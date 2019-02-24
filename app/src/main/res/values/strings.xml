@@ -5,5 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_launch">LaunchActivity</string>
     <string name="title_activity_user">UserActivity</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_message">MessageActivity</string>
+    <string name="title_activity_personal">PersonalActivity</string>
+
 </resources>
