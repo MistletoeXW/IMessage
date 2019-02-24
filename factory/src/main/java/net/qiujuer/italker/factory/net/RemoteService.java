@@ -58,4 +58,7 @@ public interface RemoteService {
     @GET("user/Followings")
     Call<RspModel<List<UserCard>>> userFollowings();
 
+    @GET("user/{userId}")
+    Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
+
 }

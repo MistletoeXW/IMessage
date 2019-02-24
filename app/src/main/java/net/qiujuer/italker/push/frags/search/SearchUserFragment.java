@@ -24,6 +24,7 @@ import net.qiujuer.italker.factory.presenter.contact.FollowPresenter;
 import net.qiujuer.italker.factory.presenter.search.SearchContract;
 import net.qiujuer.italker.factory.presenter.search.SearchUserPresenter;
 import net.qiujuer.italker.push.R;
+import net.qiujuer.italker.push.activities.PersonalActivity;
 import net.qiujuer.italker.push.activities.SearchActivity;
 
 
@@ -131,11 +132,17 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
         @Override
         protected void onBind(UserCard userCard) {
             Glide.with(SearchUserFragment.this)
-                    .load(R.drawable.bg_src_morning)//获取用户头像
+                    .load(userCard.getPortrait())//获取用户头像
                     .centerCrop()
                     .into(mPortraitView);
             mName.setText(userCard.getName());
             mFollow.setEnabled(!userCard.isFollow());
+        }
+
+        @OnClick(R.id.im_portrait)
+        void onPortraitClick() {
+            // 显示信息
+            PersonalActivity.show(getContext(), mData.getId());
         }
 
         @OnClick(R.id.im_follow)

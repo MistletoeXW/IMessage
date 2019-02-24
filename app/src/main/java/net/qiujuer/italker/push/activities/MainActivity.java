@@ -20,10 +20,12 @@ import net.qiujuer.genius.ui.Ui;
 import net.qiujuer.genius.ui.widget.FloatActionButton;
 import net.qiujuer.italker.common.app.Activity;
 import net.qiujuer.italker.common.widget.PortraitView;
+import net.qiujuer.italker.factory.persistence.Account;
 import net.qiujuer.italker.push.R;
 import net.qiujuer.italker.push.frags.main.ActiveFragment;
 import net.qiujuer.italker.push.frags.main.ContactFragment;
 import net.qiujuer.italker.push.frags.main.GroupFragment;
+import net.qiujuer.italker.push.frags.search.SearchUserFragment;
 import net.qiujuer.italker.push.helper.NavHelper;
 
 import java.util.Objects;
@@ -104,6 +106,14 @@ public class MainActivity extends Activity
         Menu menu = mNavigation.getMenu();
         // 触发首次选中Home
         menu.performIdentifierAction(R.id.action_home, 0);
+
+        // 初始化头像加载
+        mPortrait.setup(Glide.with(this), Account.getUser());
+    }
+
+    @OnClick(R.id.im_portrait)
+    void onPortraitClick() {
+        PersonalActivity.show(this, Account.getUserId());
     }
 
     @OnClick(R.id.im_search)

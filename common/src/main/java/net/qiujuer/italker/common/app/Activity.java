@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import net.qiujuer.italker.common.widget.convention.PlaceHolderView;
+
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -15,6 +17,9 @@ import butterknife.ButterKnife;
  */
 
 public abstract class Activity extends AppCompatActivity {
+
+    protected PlaceHolderView mPlaceHolderView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +30,19 @@ public abstract class Activity extends AppCompatActivity {
             // 得到界面Id并设置到Activity界面中
             int layId = getContentLayoutId();
             setContentView(layId);
-
+            initBefore();
             initWidget();
             initData();
         } else {
             finish();
         }
+    }
+
+    /**
+     * 初始化控件调用之前
+     */
+    protected void initBefore() {
+
     }
 
     /**
