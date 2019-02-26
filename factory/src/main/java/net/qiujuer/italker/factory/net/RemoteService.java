@@ -4,6 +4,8 @@ import net.qiujuer.italker.factory.model.api.RspModel;
 import net.qiujuer.italker.factory.model.api.account.AccountRspModel;
 import net.qiujuer.italker.factory.model.api.account.LoginModel;
 import net.qiujuer.italker.factory.model.api.account.RegisterModel;
+import net.qiujuer.italker.factory.model.api.message.MsgCreateModel;
+import net.qiujuer.italker.factory.model.card.MessageCard;
 import net.qiujuer.italker.factory.model.card.UserCard;
 
 import java.util.List;
@@ -60,5 +62,9 @@ public interface RemoteService {
 
     @GET("user/{userId}")
     Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
+
+    // 发送消息的接口
+    @POST("msg")
+    Call<RspModel<MessageCard>> msgPush(@Body MsgCreateModel model);
 
 }

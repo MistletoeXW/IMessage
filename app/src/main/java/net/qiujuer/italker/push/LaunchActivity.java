@@ -9,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
 import android.util.Property;
 import android.view.View;
-
 import net.qiujuer.genius.res.Resource;
 import net.qiujuer.genius.ui.compat.UiCompat;
 import net.qiujuer.italker.common.app.Activity;
@@ -54,8 +53,8 @@ public class LaunchActivity extends Activity {
             @Override
             public void run() {
                 // 检查等待状态
-                //waitPushReceiverId();
-                reallySkip();
+                waitPushReceiverId();
+                //reallySkip();
             }
         });
     }
@@ -74,6 +73,7 @@ public class LaunchActivity extends Activity {
         } else {
             // 没有登录
             // 如果拿到了PushId, 没有登录是不能绑定PushId的
+            String s = Account.getPushId();
             if (!TextUtils.isEmpty(Account.getPushId())) {
                 // 跳转
                 skip();

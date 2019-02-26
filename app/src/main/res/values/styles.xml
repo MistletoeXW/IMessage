@@ -33,6 +33,10 @@
 
     <style name="AppTheme.Account" parent="AppTheme.TransStatusBar" />
 
+    <style name="AppTheme.Message" parent="AppTheme.TransStatusBar">
+        <item name="android:windowBackground">@color/windowsBackgroundLight</item>
+    </style>
+
     <style name="TextAppearance.Title" parent="@style/TextAppearance.AppCompat.Title">
         <item name="android:textSize">?attr/toolbarTitleSize</item>
         <item name="android:textColor">?attr/toolbarTitleColor</item>

@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/lay_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.qiujuer.italker.push.activities.MessageActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:contentDescription="@string/app_name"
+        android:foreground="@color/black_alpha_16"
+        android:scaleType="centerInside"
+        android:src="@drawable/bg_src_woman" />
+
+</FrameLayout>
