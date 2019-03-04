@@ -198,8 +198,10 @@ public class Factory {
             return;
 
         // 对推送集合进行遍历
+
         for (PushModel.Entity entity : model.getEntities()) {
             Log.e(TAG, "dispatchPush-Entity:" + entity.toString());
+            String str2 = entity.content;
 
             switch (entity.type) {
                 case PushModel.ENTITY_TYPE_LOGOUT:
@@ -209,6 +211,7 @@ public class Factory {
 
                 case PushModel.ENTITY_TYPE_MESSAGE: {
                     // 普通消息
+
                     MessageCard card = getGson().fromJson(entity.content, MessageCard.class);
                     getMessageCenter().dispatch(card);
                     break;

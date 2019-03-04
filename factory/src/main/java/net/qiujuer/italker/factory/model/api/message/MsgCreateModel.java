@@ -3,14 +3,11 @@ package net.qiujuer.italker.factory.model.api.message;
 import net.qiujuer.italker.factory.model.card.MessageCard;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.persistence.Account;
+import net.qiujuer.italker.factory.utils.TimeUtils;
 
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public class MsgCreateModel {
     // ID从客户端生产，一个UUID
     private String id;
@@ -79,7 +76,7 @@ public class MsgCreateModel {
 
             // 通过当前model建立的Card就是一个初步状态的Card
             card.setStatus(Message.STATUS_CREATED);
-            card.setCreateAt(new Date());
+            card.setCreateAt(TimeUtils.timetoString(new Date()));
             this.card = card;
         }
         return this.card;

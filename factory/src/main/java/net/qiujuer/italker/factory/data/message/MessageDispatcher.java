@@ -11,8 +11,10 @@ import net.qiujuer.italker.factory.model.card.MessageCard;
 import net.qiujuer.italker.factory.model.db.Group;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.model.db.User;
+import net.qiujuer.italker.factory.utils.TimeUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -88,6 +90,7 @@ public class MessageDispatcher implements MessageCenter {
                     // 新状态为完成才更新服务器时间，不然不做更新
                     if (card.getStatus() == Message.STATUS_DONE) {
                         // 代表网络发送成功，此时需要修改时间为服务器的时间
+                        Date date =  TimeUtils.stringToTime(card.getCreateAt());
                         message.setCreateAt(card.getCreateAt());
 
                         // 如果没有进入判断，则代表这个消息是发送失败了，

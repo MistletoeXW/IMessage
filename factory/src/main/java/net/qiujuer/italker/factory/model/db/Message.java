@@ -44,7 +44,7 @@ public class Message extends BaseDbModel<Message> implements Serializable {
     @Column
     private int type;// 消息类型
     @Column
-    private Date createAt;// 创建时间
+    private String createAt;// 创建时间
     @Column
     private int status;// 当前消息的状态
 
@@ -90,11 +90,11 @@ public class Message extends BaseDbModel<Message> implements Serializable {
         this.type = type;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 

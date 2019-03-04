@@ -10,6 +10,7 @@ import com.raizlabs.android.dbflow.annotation.Table;
 import net.qiujuer.italker.factory.data.helper.GroupHelper;
 import net.qiujuer.italker.factory.data.helper.MessageHelper;
 import net.qiujuer.italker.factory.data.helper.UserHelper;
+import net.qiujuer.italker.factory.utils.TimeUtils;
 
 import java.util.Date;
 import java.util.Objects;
@@ -36,7 +37,7 @@ public class Session extends BaseDbModel<Session> {
     @Column
     private int unReadCount; // 未读数量，当没有在当前界面时，应当增加未读数量
     @Column
-    private Date modifyAt; // 最后更改时间
+    private String modifyAt; // 最后更改时间
 
     @ForeignKey(tableClass = Message.class)
     private Message message; // 对应的消息，外键为Message的Id
@@ -124,11 +125,11 @@ public class Session extends BaseDbModel<Session> {
         this.unReadCount = unReadCount;
     }
 
-    public Date getModifyAt() {
+    public String getModifyAt() {
         return modifyAt;
     }
 
-    public void setModifyAt(Date modifyAt) {
+    public void setModifyAt(String modifyAt) {
         this.modifyAt = modifyAt;
     }
 
@@ -210,7 +211,7 @@ public class Session extends BaseDbModel<Session> {
 
                 this.message = null;
                 this.content = "";
-                this.modifyAt = new Date(System.currentTimeMillis());
+                this.modifyAt = TimeUtils.timetoString(new Date(System.currentTimeMillis()));
             } else {
                 // 本地有最后一条聊天记录
                 if (TextUtils.isEmpty(picture)
@@ -244,7 +245,7 @@ public class Session extends BaseDbModel<Session> {
 
                 this.message = null;
                 this.content = "";
-                this.modifyAt = new Date(System.currentTimeMillis());
+                this.modifyAt = TimeUtils.timetoString(new Date(System.currentTimeMillis()));
             } else {
                 // 我和他有消息来往
 

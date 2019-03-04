@@ -13,10 +13,6 @@ import net.qiujuer.italker.common.widget.convention.PlaceHolderView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-/**
- * @author qiujuer
- */
-
 public abstract class Fragment extends android.support.v4.app.Fragment {
     protected View mRoot;
     protected Unbinder mRootUnBinder;

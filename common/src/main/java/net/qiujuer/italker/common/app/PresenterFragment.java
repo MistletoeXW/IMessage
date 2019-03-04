@@ -4,10 +4,6 @@ import android.content.Context;
 
 import net.qiujuer.italker.factory.presenter.BaseContract;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public abstract class PresenterFragment<Presenter extends BaseContract.Presenter> extends Fragment
         implements BaseContract.View<Presenter> {
 
@@ -23,6 +19,7 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
 
     /**
      * 初始化Presenter
+     *
      * @return Presenter
      */
     protected abstract Presenter initPresenter();
@@ -48,5 +45,12 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
     public void setPresenter(Presenter presenter) {
         // View中赋值Presenter
         mPresenter = presenter;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mPresenter != null)
+            mPresenter.destroy();
     }
 }

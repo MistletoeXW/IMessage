@@ -18,8 +18,6 @@ import java.util.List;
  * 跟某人聊天的时候的聊天列表
  * 关注的内容一定是我发给这个人的，或者是他发送给我的
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public class MessageRepository extends BaseDbRepository<Message>
         implements MessageDataSource {

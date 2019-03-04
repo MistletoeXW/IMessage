@@ -5,10 +5,6 @@ import net.qiujuer.italker.factory.data.message.MessageRepository;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.model.db.User;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public class ChatUserPresenter extends ChatPresenter<ChatContract.UserView>
         implements ChatContract.Presenter {
 

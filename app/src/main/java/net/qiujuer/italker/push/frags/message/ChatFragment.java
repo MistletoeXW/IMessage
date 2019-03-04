@@ -33,10 +33,6 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public abstract class ChatFragment<InitModel>
         extends PresenterFragment<ChatContract.Presenter>
         implements AppBarLayout.OnOffsetChangedListener,

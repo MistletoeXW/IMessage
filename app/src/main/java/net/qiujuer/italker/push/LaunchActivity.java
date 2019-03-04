@@ -54,7 +54,6 @@ public class LaunchActivity extends Activity {
             public void run() {
                 // 检查等待状态
                 waitPushReceiverId();
-                //reallySkip();
             }
         });
     }
@@ -73,7 +72,6 @@ public class LaunchActivity extends Activity {
         } else {
             // 没有登录
             // 如果拿到了PushId, 没有登录是不能绑定PushId的
-            String s = Account.getPushId();
             if (!TextUtils.isEmpty(Account.getPushId())) {
                 // 跳转
                 skip();

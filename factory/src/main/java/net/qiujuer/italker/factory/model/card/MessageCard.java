@@ -3,6 +3,7 @@ package net.qiujuer.italker.factory.model.card;
 import net.qiujuer.italker.factory.model.db.Group;
 import net.qiujuer.italker.factory.model.db.Message;
 import net.qiujuer.italker.factory.model.db.User;
+import net.qiujuer.italker.factory.utils.TimeUtils;
 
 import java.util.Date;
 
@@ -17,8 +18,8 @@ public class MessageCard {
     private String id;
     private String content;
     private String attach;
-    private int type;
-    private Date createAt;
+    private Integer type;
+    private String createAt;
     private String groupId;
     private String senderId;
     private String receiverId;
@@ -56,15 +57,15 @@ public class MessageCard {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 

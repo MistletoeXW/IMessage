@@ -13,8 +13,6 @@ import java.util.List;
 /**
  * 推送消息的基础Model
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 @SuppressWarnings("WeakerAccess")
 public class PushModel {

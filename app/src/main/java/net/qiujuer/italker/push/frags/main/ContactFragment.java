@@ -15,8 +15,8 @@ import net.qiujuer.italker.factory.model.db.User;
 import net.qiujuer.italker.factory.presenter.contact.ContactContract;
 import net.qiujuer.italker.factory.presenter.contact.ContactPresenter;
 import net.qiujuer.italker.push.R;
+import net.qiujuer.italker.push.activities.MessageActivity;
 import net.qiujuer.italker.push.activities.PersonalActivity;
-import net.qiujuer.italker.push.frags.search.SearchUserFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -59,6 +59,15 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
             @Override
             protected ViewHolder<User> onCreateViewHolder(View root, int viewType) {
                 return new ContactFragment.ViewHolder(root);
+            }
+        });
+
+        // 点击事件监听
+        mAdapter.setListener(new RecyclerAdapter.AdapterListenerImpl<User>() {
+            @Override
+            public void onItemClick(RecyclerAdapter.ViewHolder holder, User user) {
+                // 跳转到聊天界面
+                MessageActivity.show(getContext(), user);
             }
         });
 
@@ -110,10 +119,7 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
 
         @Override
         protected void onBind(User user) {
-            Glide.with(ContactFragment.this)
-                    .load(user.getPortrait())//获取用户头像
-                    .centerCrop()
-                    .into(mPortraitView);
+            mPortraitView.setup(Glide.with(ContactFragment.this), user);
             mName.setText(user.getName());
             mDesc.setText(user.getDesc());
         }
